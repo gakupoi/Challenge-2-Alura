@@ -1,17 +1,45 @@
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
+import Conversor.Distance;
+import Conversor.Money;
+
+import javax.swing.*;
+
+
 public class Main {
-    public static void main(String[] args) {
-        // Press Alt+Intro with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        // Press Mayús+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Mayús+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+    public static double interfaceAmount (){
+        double numero;
+        numero = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el valor a convertir"));
+//        System.out.println(numero);
+        return numero;
     }
+    public static void main(String[] args) {
+
+        String [] arrayOptions = {"Conversor de Moneda", "Conversor de Temperatura" };
+        Object opcionConversion = JOptionPane.showInputDialog(
+                null,
+                "Seleccione una opcion de conversion",
+                "MENU",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                arrayOptions,
+                "Conversor de Moneda");
+
+
+        System.out.println(opcionConversion);
+
+        if (opcionConversion == "Conversor de Moneda"){
+            double valor = interfaceAmount();
+            System.out.println(valor);
+            //Money money = new Money();
+        } else if (opcionConversion == "Conversor de temperatura"){
+            System.out.println("distancia");
+            Distance distance = new Distance();
+
+        }
+
+
+    }
+
+
 }
