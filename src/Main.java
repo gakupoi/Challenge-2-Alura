@@ -2,39 +2,38 @@
 // then press Enter. You can now see whitespace characters in your code.
 import Conversor.Distance;
 import Conversor.Money;
+import Interfaces.interfaz.Display;
 
 import javax.swing.*;
 
 
 public class Main {
-    public static double interfaceAmount (){
-        double numero;
-        numero = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el valor a convertir"));
-//        System.out.println(numero);
-        return numero;
-    }
+
     public static void main(String[] args) {
 
-        String [] arrayOptions = {"Conversor de Moneda", "Conversor de Temperatura" };
-        Object opcionConversion = JOptionPane.showInputDialog(
-                null,
-                "Seleccione una opcion de conversion",
-                "MENU",
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                arrayOptions,
-                "Conversor de Moneda");
+        Display display = new Display();
+        Object opcionConversion = display.convertir();
 
+        try {
+            display.setInterfaceAmount();
+        } catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Ingresa solo valores numéricos", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
 
-        System.out.println(opcionConversion);
 
         if (opcionConversion == "Conversor de Moneda"){
-            double valor = interfaceAmount();
-            System.out.println(valor);
-            //Money money = new Money();
-        } else if (opcionConversion == "Conversor de temperatura"){
-            System.out.println("distancia");
-            Distance distance = new Distance();
+//            System.out.println("Moneda");
+
+            double valor = display.getInterfaceAmount();
+
+            Money money = new Money(display.toConvert() , display.Convert(), valor);
+
+            System.out.println(money.getTotal());
+
+
+        } else if (opcionConversion == "Conversor de Temperatura"){
+//            System.out.println("distancia");
 
         }
 
