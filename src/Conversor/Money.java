@@ -14,48 +14,24 @@ public class Money {
     private double total = 0;
 
     public Money(String origen, String destino, double valor) {
-        double moneda1 = 0;
-        switch (origen) {
-            case "USD":
-                moneda1 = USD;
-                break;
-            case "EUR":
-                moneda1 = EUR;
-                break;
-            case "GBP":
-                moneda1 = GBP;
-                break;
-            case "JPY":
-                moneda1 = JPY;
-                break;
-            case "KRW":
-                moneda1 = KRW;
-                break;
-            case "MXN":
-                moneda1 = MXN;
-                break;
-        }
-        double moneda2 = 0;
-        switch (destino) {
-            case "USD":
-                moneda2 = USD;
-                break;
-            case "EUR":
-                moneda2 = EUR;
-                break;
-            case "GBP":
-                moneda2 = GBP;
-                break;
-            case "JPY":
-                moneda2 = JPY;
-                break;
-            case "KRW":
-                moneda2 = KRW;
-                break;
-            case "MXN":
-                moneda2 = MXN;
-                break;
-        }
+        double moneda1 = switch (origen) {
+            case "USD" -> USD;
+            case "EUR" -> EUR;
+            case "GBP" -> GBP;
+            case "JPY" -> JPY;
+            case "KRW" -> KRW;
+            case "MXN" -> MXN;
+            default -> 0;
+        };
+        double moneda2 = switch (destino) {
+            case "USD" -> USD;
+            case "EUR" -> EUR;
+            case "GBP" -> GBP;
+            case "JPY" -> JPY;
+            case "KRW" -> KRW;
+            case "MXN" -> MXN;
+            default -> 0;
+        };
         System.out.println(moneda1);
         System.out.println(moneda2);
         total = (valor*moneda2)/moneda1;
