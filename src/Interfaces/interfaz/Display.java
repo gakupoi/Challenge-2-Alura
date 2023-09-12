@@ -4,10 +4,9 @@ import javax.swing.*;
 public class Display {
     protected double interfaceAmount;
 
-    String[] arrayOptions = {"Conversor de Moneda", "Conversor de Distancia", "Conversonr de temperatura"};
+    String[] arrayOptions = {"Conversor de Moneda", "Conversor de Distancia"};
     String[] divisas = {"USD", "EUR", "GBP", "JPY", "KRW", "MXN"};
     String[] distancias = {"KM", "M", "CM", "MM"};
-    String[] temperaturas = {"C", "F", "k"};
 
     public Object convertidor(){
         var opcion = JOptionPane.showInputDialog(
